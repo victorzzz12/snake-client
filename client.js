@@ -13,8 +13,16 @@ const connect = function() {
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });
-
+  conn.on('connect', () => {
+    console.log("Successfully connected")
+  });
+  conn.on('connect', () => {
+    conn.write("Name: vic");
+    setInterval(() => {
+      conn.write("Move: left");
+    }, 50);
+  });
   return conn;
 }
 
-module.exports = connect;
+module.exports = {connect};
