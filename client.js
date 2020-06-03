@@ -18,12 +18,9 @@ const connect = function() {
   });
   conn.on('connect', () => {
     conn.write("Name: vic");
-    setInterval(() => {
-      conn.write("Move: left");
-    }, 100);
   });
   return conn;
 }
 
 
-module.exports = {connect};
+module.exports = { connect };
